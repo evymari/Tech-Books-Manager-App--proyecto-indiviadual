@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Imprimir {
 
-    Libro[] listaLibros = { new Libro("A123", "Effective Java", "Joshua Bloch"),
+    private Libro[] listaLibros = { new Libro("A123", "Effective Java", "Joshua Bloch"),
             new Libro("A234", "Effective Javascript", "Joshua Bloch"),
             new Libro("A345", "Effective C", "Joshua Bloch")};
 
@@ -49,7 +49,7 @@ public class Imprimir {
         } while (option != 5);
     }
 
-    public static void imprimirlibros(Libro[] listaLibros) {
+    private void imprimirlibros(Libro[] listaLibros) {
         for (Libro listaLibro : listaLibros) {
             System.out.println(listaLibro);
         }

@@ -1,9 +1,9 @@
 package com.alexmonzon;
 
 public class Libro {
-    String isbn;
-    String titulo;
-    String autor;
+    private String isbn;
+    private String titulo;
+    private String autor;
 
     public Libro(String isbn, String titulo, String autor) {
         this.isbn = isbn;
