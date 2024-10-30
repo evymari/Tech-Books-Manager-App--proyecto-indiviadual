@@ -1,11 +1,12 @@
 package com.alexmonzon;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Imprimir {
-
-    private Libro[] listaLibros = { /*new Libro("A123", "Effective Java", "Joshua Bloch"),
-            new Libro("A234", "Effective Javascript", "Joshua Bloch"),
-            new Libro("A345", "Effective C", "Joshua Bloch")*/};
+    private List<Libro> lista = new ArrayList<>();
+    Libro libro1 = new Libro("A123", "Java", "java");
 
 
     public void imprimir() {
@@ -27,10 +28,12 @@ public class Imprimir {
             switch (option) {
                 case 1:
                     System.out.println("Option 1: Añadir Libro");
+                    lista.add(libro1);
+                    System.out.println("Se ha añadido un libro con éxito");
                     break;
                 case 2:
                     System.out.println("Option 2: Ver todos los libros");
-                    imprimirlibros(listaLibros);
+                    imprimirlibros(lista);
                     break;
                 case 3:
                     System.out.println("Option 3: Eliminar libro");
@@ -49,21 +52,19 @@ public class Imprimir {
         } while (option != 5);
     }
 
-    private void imprimirlibros(Libro[] listaLibros) {
+    private void imprimirlibros(List<Libro> listaLibros) {
 
-        if (listaLibros.length == 0) {
+        if (listaLibros.size() == 0) {
             System.out.println("La lista de libros está vacía.");
             return;
         }
 
-            for (Libro listaLibro : listaLibros) {
-                System.out.println(listaLibro);
+        for (Libro listaLibro : listaLibros) {
+            System.out.println(lista);
 
 
-            }
         }
-
-
+    }
 
 
 }
