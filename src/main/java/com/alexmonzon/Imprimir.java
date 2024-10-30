@@ -1,20 +1,15 @@
 package com.alexmonzon;
-
 import java.util.Scanner;
 
 public class Imprimir {
-    public static void imprimirlibros(Libro[] listaLibros) {
-        for (int i = 0; i < listaLibros.length; i++) {
-            System.out.println(listaLibros[i]);
-        }
-    }
+
+    Libro[] listaLibros = { new Libro("A123", "Effective Java", "Joshua Bloch"),
+            new Libro("A234", "Effective Javascript", "Joshua Bloch"),
+            new Libro("A345", "Effective C", "Joshua Bloch")};
+
 
     public void imprimir() {
-        Libro libro1 = new Libro("A123", "Effective Java", "Joshua Bloch");
-        Libro libro2 = new Libro("A234", "Effective Javascript", "Joshua Bloch");
-        Libro libro3 = new Libro("A345", "Effective C", "Joshua Bloch");
 
-        Libro[] listaLibros = {libro1, libro2, libro3};
         int option;
         Scanner sc = new Scanner(System.in);
 
@@ -35,7 +30,6 @@ public class Imprimir {
                     break;
                 case 2:
                     System.out.println("Option 2: Ver todos los libros");
-
                     imprimirlibros(listaLibros);
                     break;
                 case 3:
@@ -54,5 +48,13 @@ public class Imprimir {
             }
         } while (option != 5);
     }
+
+    public static void imprimirlibros(Libro[] listaLibros) {
+        for (Libro listaLibro : listaLibros) {
+            System.out.println(listaLibro);
+        }
+    }
+
+
 }
 
