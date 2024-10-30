@@ -28,7 +28,7 @@ public class Imprimir {
             switch (option) {
                 case 1:
                     System.out.println("Option 1: Añadir Libro");
-                    lista.add(libro1);
+                    addBook();
                     System.out.println("Se ha añadido un libro con éxito");
                     break;
                 case 2:
@@ -52,6 +52,19 @@ public class Imprimir {
         } while (option != 5);
     }
 
+    private void addBook() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println(" introdusca el isbn");
+        String isbn = sc.next();
+        System.out.println("introduce titulo");
+        String titulo = sc.next();
+        System.out.println("introduce autor");
+        String autor = sc.next();
+
+        Libro libro = new Libro(isbn, titulo, autor);
+        lista.add(libro);
+    }
+
     private void imprimirlibros(List<Libro> listaLibros) {
 
         if (listaLibros.size() == 0) {
@@ -64,6 +77,7 @@ public class Imprimir {
 
 
         }
+
     }
 
 
