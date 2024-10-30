@@ -3,9 +3,9 @@ import java.util.Scanner;
 
 public class Imprimir {
 
-    private Libro[] listaLibros = { new Libro("A123", "Effective Java", "Joshua Bloch"),
+    private Libro[] listaLibros = { /*new Libro("A123", "Effective Java", "Joshua Bloch"),
             new Libro("A234", "Effective Javascript", "Joshua Bloch"),
-            new Libro("A345", "Effective C", "Joshua Bloch")};
+            new Libro("A345", "Effective C", "Joshua Bloch")*/};
 
 
     public void imprimir() {
@@ -50,10 +50,20 @@ public class Imprimir {
     }
 
     private void imprimirlibros(Libro[] listaLibros) {
-        for (Libro listaLibro : listaLibros) {
-            System.out.println(listaLibro);
+
+        if (listaLibros.length == 0) {
+            System.out.println("La lista de libros está vacía.");
+            return;
         }
-    }
+
+            for (Libro listaLibro : listaLibros) {
+                System.out.println(listaLibro);
+
+
+            }
+        }
+
+
 
 
 }
