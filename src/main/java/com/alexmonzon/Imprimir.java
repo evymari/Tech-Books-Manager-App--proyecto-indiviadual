@@ -58,10 +58,15 @@ public class Imprimir {
 
             System.out.println(" Introdusca el isbn. (El campo no puede estar vacio)");
             String isbn = sc.nextLine();
-            System.out.println();
-
+            for (Libro libro : lista) {
+                if (libro.getIsbn().equalsIgnoreCase(isbn)){
+                    System.out.println("Ya existe un libro con ese ISBN. No se puede añadir el libro.");
+                    return;
+                }
+            }
             if (!isbn.matches("^[A-Za-z]\\d{3}$")) {
                 System.out.println("Ingrese una letra seguida de tres números");
+
                 continue;
             }
             ;
@@ -93,12 +98,7 @@ public class Imprimir {
             System.out.println("La lista de libros está vacía.");
             return;
         }
-
-        for (Libro listaLibro : listaLibros) {
-            System.out.println(lista);
-
-
-        }
+        System.out.println(lista);
 
     }
 
