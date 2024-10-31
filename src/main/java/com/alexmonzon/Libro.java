@@ -11,6 +11,11 @@ public class Libro {
         this.autor = autor;
     }
 
+    public String getIsbn() {
+        return isbn;
+    }
+
+
     @Override
     public String toString() {
         return "Libro{" +

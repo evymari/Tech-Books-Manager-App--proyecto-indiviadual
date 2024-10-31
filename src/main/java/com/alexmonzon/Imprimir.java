@@ -29,7 +29,6 @@ public class Imprimir {
                 case 1:
                     System.out.println("Option 1: Añadir Libro");
                     addBook();
-                    System.out.println("Se ha añadido un libro con éxito");
                     break;
                 case 2:
                     System.out.println("Option 2: Ver todos los libros");
@@ -53,44 +52,39 @@ public class Imprimir {
     }
 
     private void addBook() {
+
         Scanner sc = new Scanner(System.in);
         while (true) {
+
             System.out.println(" Introdusca el isbn. (El campo no puede estar vacio)");
-            String isbn = sc.next();
-            if (!isbn.matches("^[A-Za-z]\\d{3}$") || isbn.trim().isEmpty()) {
+            String isbn = sc.nextLine();
+            System.out.println();
+
+            if (!isbn.matches("^[A-Za-z]\\d{3}$")) {
                 System.out.println("Ingrese una letra seguida de tres números");
                 continue;
             }
             ;
 
             System.out.println("introduce titulo. (El campo no puede estar vacío)");
-            String titulo = sc.next();
-            if (titulo.trim().isEmpty()) {
-                continue;
-            }
+            String titulo = sc.nextLine();
+
             System.out.println("Introduce autor. (El campo no puede estar vacío.)");
-            String autor = sc.next();
-            if (autor.trim().isEmpty()) {
-                continue;
+            String autor = sc.nextLine();
+
+            if (isbn.trim().isEmpty() || titulo.trim().isEmpty() || autor.trim().isEmpty()) {
+                System.out.println("Todos los campos son obligatorios. Por favor, intente nuevamente.");
+
+            } else {
+                Libro libro = new Libro(isbn, titulo, autor);
+                lista.add(libro);
+                imprimirlibros(lista);
+                System.out.println("El libro añadido con éxito.");
             }
 
-            Libro libro = new Libro(isbn, titulo, autor);
-            lista.add(libro);
-            imprimirlibros(lista);
-            if ( lista.add(libro)== true){
-                System.out.println("El libro se ha añadido correctamente.");
-                System.out.println("¿Quiere añadir otro libro? S/N");
-                String value = sc.next();
-                if (value == "s" || value == "S"){
-                    continue;
-                }else {
+            break;
 
-                    break;
-                }
-
-            }
         }
-        System.out.println("Gracias");
     }
 
     private void imprimirlibros(List<Libro> listaLibros) {
