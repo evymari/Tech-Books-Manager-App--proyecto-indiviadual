@@ -54,15 +54,43 @@ public class Imprimir {
 
     private void addBook() {
         Scanner sc = new Scanner(System.in);
-        System.out.println(" introdusca el isbn");
-        String isbn = sc.next();
-        System.out.println("introduce titulo");
-        String titulo = sc.next();
-        System.out.println("introduce autor");
-        String autor = sc.next();
+        while (true) {
+            System.out.println(" Introdusca el isbn. (El campo no puede estar vacio)");
+            String isbn = sc.next();
+            if (!isbn.matches("^[A-Za-z]\\d{3}$") || isbn.trim().isEmpty()) {
+                System.out.println("Ingrese una letra seguida de tres números");
+                continue;
+            }
+            ;
 
-        Libro libro = new Libro(isbn, titulo, autor);
-        lista.add(libro);
+            System.out.println("introduce titulo. (El campo no puede estar vacío)");
+            String titulo = sc.next();
+            if (titulo.trim().isEmpty()) {
+                continue;
+            }
+            System.out.println("Introduce autor. (El campo no puede estar vacío.)");
+            String autor = sc.next();
+            if (autor.trim().isEmpty()) {
+                continue;
+            }
+
+            Libro libro = new Libro(isbn, titulo, autor);
+            lista.add(libro);
+            imprimirlibros(lista);
+            if ( lista.add(libro)== true){
+                System.out.println("El libro se ha añadido correctamente.");
+                System.out.println("¿Quiere añadir otro libro? S/N");
+                String value = sc.next();
+                if (value == "s" || value == "S"){
+                    continue;
+                }else {
+
+                    break;
+                }
+
+            }
+        }
+        System.out.println("Gracias");
     }
 
     private void imprimirlibros(List<Libro> listaLibros) {
