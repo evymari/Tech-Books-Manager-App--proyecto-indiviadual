@@ -36,13 +36,13 @@ public class Imprimir {
                     break;
                 case 3:
                     System.out.println("Option 3: Eliminar libro");
+                    deleteBook();
                     break;
                 case 4:
                     System.out.println("Option 4: Cambiar Repositorio");
                     break;
                 case 5:
                     System.out.println("Option 5: Salir");
-                    option = 5;
                     break;
                 default:
                     System.out.println("Opcion no valida");
@@ -59,7 +59,7 @@ public class Imprimir {
             System.out.println(" Introdusca el isbn. (El campo no puede estar vacio)");
             String isbn = sc.nextLine();
             for (Libro libro : lista) {
-                if (libro.getIsbn().equalsIgnoreCase(isbn)){
+                if (libro.getIsbn().equalsIgnoreCase(isbn)) {
                     System.out.println("Ya existe un libro con ese ISBN. No se puede añadir el libro.");
                     return;
                 }
@@ -89,6 +89,28 @@ public class Imprimir {
 
             break;
 
+        }
+    }
+
+
+    private void deleteBook() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Introduce el ISBN del libro a eliminar: ");
+        String isbn = sc.nextLine();
+
+        Libro libroAEliminar = null;
+        for (Libro libro : lista) {
+            if (libro.getIsbn().equalsIgnoreCase(isbn)) {
+                libroAEliminar = libro;
+                break;
+            }
+        }
+
+        if (libroAEliminar != null) {
+            lista.remove(libroAEliminar);
+            System.out.println("El libro con ISBN " + isbn + " ha sido eliminado.");
+        } else {
+            System.out.println("No se encontró ningún libro con el ISBN especificado.");
         }
     }
 
