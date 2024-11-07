@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Imprimir {
+public class Menu {
     private List<Libro> lista = new ArrayList<>();
     Libro libro1 = new Libro("A123", "Java", "java");
 
@@ -13,14 +13,18 @@ public class Imprimir {
 
         int option;
         Scanner sc = new Scanner(System.in);
-
+        String[] menu = {
+                "1. Añadir Libro",
+                "2. Ver todos los libros",
+                "3. Eliminar libro",
+                "4. Cambiar Repositorio",
+                "5. Salir"
+        };
         do {
 
-            System.out.println("1. Añadir Libro");
-            System.out.println("2. Ver todos los libros");
-            System.out.println("3. Eliminar libro");
-            System.out.println("4. Cambiar Repositorio");
-            System.out.println("5. Salir");
+            for (String item : menu) {
+                System.out.println(item);
+            }
 
             System.out.println("Select the option: ");
             option = sc.nextInt();
@@ -28,15 +32,15 @@ public class Imprimir {
             switch (option) {
                 case 1:
                     System.out.println("Option 1: Añadir Libro");
-                    addBook();
+                    optionSelector(option);
                     break;
                 case 2:
                     System.out.println("Option 2: Ver todos los libros");
-                    imprimirlibros(lista);
+                    optionSelector(option);
                     break;
                 case 3:
                     System.out.println("Option 3: Eliminar libro");
-                    deleteBook();
+                    optionSelector(option);
                     break;
                 case 4:
                     System.out.println("Option 4: Cambiar Repositorio");
@@ -49,6 +53,12 @@ public class Imprimir {
                     break;
             }
         } while (option != 5);
+    }
+
+    private void optionSelector(int option) {
+        if (option == 1) this.addBook();
+        if (option == 2) this.printBookList(lista);
+        if (option == 3) this.deleteBook();
     }
 
     private void addBook() {
@@ -83,7 +93,7 @@ public class Imprimir {
             } else {
                 Libro libro = new Libro(isbn, titulo, autor);
                 lista.add(libro);
-                imprimirlibros(lista);
+                printBookList(lista);
                 System.out.println("El libro añadido con éxito.");
             }
 
@@ -114,7 +124,7 @@ public class Imprimir {
         }
     }
 
-    private void imprimirlibros(List<Libro> listaLibros) {
+    private void printBookList(List<Libro> listaLibros) {
 
         if (listaLibros.size() == 0) {
             System.out.println("La lista de libros está vacía.");
