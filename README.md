@@ -16,24 +16,26 @@ Tech Book Manger
 - - `deleteBook()`: Permite eliminar un libro de la lista usando el ISBN. 
 - - `imprimirlibros()`: Muestra todos los libros en la colección o un mensaje si la lista está vacía. 
 
-## Instalación 1. Clona este repositorio. ```bash git clone https://github.com/usuario/tech-books-manager-app.git
-Navega al directorio del proyecto.
-bash
-Copiar código
-cd tech-books-manager-app
-Compila el código fuente.
-bash
-Copiar código
-javac -d bin src/com/alexmonzon/*.java
-Ejecuta la aplicación.
-bash
-Copiar código
-java -cp bin com.alexmonzon.Imprimir
+## Instalación 1. 
+- Clona este repositorio. 
+
+```bash git clone https://github.com/usuario/tech-books-manager-app.git```
+- Navega al directorio del proyecto.
+
+```cd tech-books-manager-app```
+
+- Compila el código fuente.
+
+ ```javac -d bin src/com/alexmonzon/*.java```
+- Ejecuta la aplicación.
+
+```java -cp bin com.alexmonzon```
 
 ## Uso
-Al iniciar la aplicación, selecciona una opción del menú para gestionar tu colección de libros.
-Sigue las instrucciones en la consola para añadir, ver o eliminar libros.
-Ingresa el ISBN en el formato adecuado (una letra y tres números, como A123) para agregar o eliminar un libro.
-Ejemplo de Ejecución
+- Al iniciar la aplicación, selecciona una opción del menú para gestionar tu colección de libros.
+- Sigue las instrucciones en la consola para añadir, ver o eliminar libros.
+- Ingresa el ISBN en el formato adecuado (una letra y tres números, como A123) para agregar o eliminar un libro.
+
+## Ejemplo de Ejecución
 
 ![imagen de uso](Image20241104103403.png)
