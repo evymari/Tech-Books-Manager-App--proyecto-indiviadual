@@ -1,4 +1,4 @@
-package com.alexmonzon;
+package com.example.bookManager;
 
 public class Libro {
     private String isbn;
@@ -20,8 +20,20 @@ public class Libro {
     public String toString() {
         return "Libro{" +
                 "isbn='" + isbn + '\'' +
-                ", titulo='" + titulo + '\'' +
-                ", autor='" + autor + '\'' +
+                ", titulo:'" + titulo + '\'' +
+                ", autor:'" + autor + '\'' +
                 '}';
+    }
+
+    public String getAutor() {
+        return autor;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setAutor(String autor) {
+        this.autor = autor;
     }
 }
