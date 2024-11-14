@@ -1,32 +1,42 @@
-package com.alexmonzon;
+package com.example.bookManager;
 
-
-
-
-import java.util.List;
-import java.util.Optional;
 
 public class Main {
 
     public static void main(String[] args) {
-        MySQLBookRepository bookRepository = new MySQLBookRepository();
-       // Menu menu = new Menu();
-       // menu.imprimir();
+        Application app = new Application();
+        app.printMenu();
+       // BookConsoleView app = new BookConsoleView();
+       // app.printMenu();
+    }
+
+         //Menu menu = new Menu();
+         //menu.imprimir();
 
         //CASO USO : guardar libro
 
-
+       // MySQLBookRepository  bookRepository = new MySQLBookRepository ();
         //añadir un libro
-        Book newBook = new Book( "C233", "clean ", "uncle");
-        bookRepository.save(newBook);
+       // Book book = new Book( "C235", "clean ", "uncle");
+       // bookRepository.save(book);
 
-        List<Book> list = bookRepository.findALL();
-        for (Book book : list) {
-            System.out.println(book);
+        /*List<Book> list = bookRepository.findAll();
+        for (Book book: list){
+            //System.out.println(book);
         }
 
+        Optional<Book> optionalBook = bookRepository.findByIsbn("C234");
 
-       /* bookRepository.deleteByIsbn("C234");
+        if (optionalBook.isPresent()) {
+            Book book = optionalBook.get();
+            System.out.println(book);
+        }
+        if (optionalBook.isEmpty()){
+            System.out.println("El libro no se encuentra");}
+
+    }/*
+
+  /* bookRepository.deleteByIsbn("C234");
         List<Book> List = bookRepository.finALL();
         for (Book book:List) {
             System.out.println(book);
@@ -44,9 +54,6 @@ public class Main {
 
             System.out.println("EL LIBRO NO EXISTE");
         }*/
-    }
-
-
 }
 
 

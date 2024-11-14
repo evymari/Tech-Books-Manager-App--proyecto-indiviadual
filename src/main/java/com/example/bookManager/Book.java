@@ -1,14 +1,14 @@
 package com.example.bookManager;
 
-public class Libro {
+public class Book {
     private String isbn;
-    private String titulo;
-    private String autor;
+    private String title;
+    private String author;
 
-    public Libro(String isbn, String titulo, String autor) {
+    public Book(String isbn, String title, String author) {
         this.isbn = isbn;
-        this.titulo = titulo;
-        this.autor = autor;
+        this.title = title;
+        this.author = author;
     }
 
     public String getIsbn() {
@@ -18,22 +18,22 @@ public class Libro {
 
     @Override
     public String toString() {
-        return "Libro{" +
+        return "Book{" +
                 "isbn='" + isbn + '\'' +
-                ", titulo:'" + titulo + '\'' +
-                ", autor:'" + autor + '\'' +
+                ", title:'" + title + '\'' +
+                ", author:'" + author + '\'' +
                 '}';
     }
 
     public String getAutor() {
-        return autor;
+        return author;
     }
 
     public String getTitulo() {
-        return titulo;
+        return title;
     }
 
     public void setAutor(String autor) {
-        this.autor = autor;
+        this.author = autor;
     }
 }

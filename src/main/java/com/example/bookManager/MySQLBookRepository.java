@@ -1,23 +1,20 @@
-package com.alexmonzon;
 
+package com.example.bookManager;
 
-import java.awt.print.Book;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-
 import java.util.Optional;
-
 
 
 public class MySQLBookRepository {
 
     //CRUD
     public void save(Book book) {
-        String sql = "INSERT INTO books (isbn, title, author) VALUES('%s','%s','%s').formatted(book.getIsbn(), book.getTitle(), book.getAuthor())";
+        String sql = "INSERT INTO books (isbn, title, author) VALUES ('%s', '%s', '%s')"
+                .formatted(book.getIsbn(), book.getTitulo(), book.getAutor());
+
+        System.out.println(sql);
         //CREATE A BOOK IN DATABASE
         // String sql = "SELECT * FROM books";
         try {
@@ -27,7 +24,6 @@ public class MySQLBookRepository {
             // Statement.executeQuery(sql);
 
 
-
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
@@ -35,7 +31,7 @@ public class MySQLBookRepository {
 
     }
 
-    public List<Book> findALL() {
+    public List<Book> findAll() {
         String sql = "SELECT * FROM books";
         List<Book> bookList = new ArrayList<>();
 
@@ -54,7 +50,7 @@ public class MySQLBookRepository {
             }
 
 
-        } catch (SQLException ex){
+        } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
         return bookList;
@@ -71,27 +67,28 @@ public class MySQLBookRepository {
             System.out.println(ex.getMessage());
         }
     }
-        public Optional<Book> finByIsbn(String isbn){
-            String sql = "SELECT * FROM books WHERE isbn = '%s'".formatted(isbn);
-            try {
-                Connection connection = MySQLConnection.getConnection();
-                Statement statement = connection.createStatement();
-                ResultSet res = statement.executeQuery(sql);
-                //mirar sihay resultado
 
-                if (res.next()) {
-                    Book book = newBook(
-                            res.getString("isbn"),
-                            res.getString("title"),
-                            res.getString("author")
-                    );
-                    return Optional.of(book);
-                }
+    public Optional<Book> findByIsbn(String isbn) {
+        String sql = "SELECT * FROM books WHERE isbn = '%s'".formatted(isbn);
+        try {
+            Connection connection = MySQLConnection.getConnection();
+            Statement statement = connection.createStatement();
+            ResultSet res = statement.executeQuery(sql);
+            //mirar sihay resultado
 
-            } catch (SQLException ex) {
-                System.out.println(ex.getMessage());
+            if (res.next()) {
+                Book book = new Book(
+                        res.getString("isbn"),
+                        res.getString("title"),
+                        res.getString("author")
+                );
+                return Optional.of(book);
             }
-            return Optional.empty();
-        }
 
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return Optional.empty();
     }
+
+}

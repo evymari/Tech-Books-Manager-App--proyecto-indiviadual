@@ -1,12 +1,12 @@
-package com.alexmonzon;
+package com.example.bookManager;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Menu {
-    private List<Libro> lista = new ArrayList<>();
-    Libro libro1 = new Libro("A123", "Java", "java");
+   private List<Book> lista = new ArrayList<>();
+    Book libro1 = new Book("A123", "Java", "java");
 
 
     public void imprimir() {
@@ -68,7 +68,7 @@ public class Menu {
 
             System.out.println(" Introdusca el isbn. (El campo no puede estar vacio)");
             String isbn = sc.nextLine();
-            for (Libro libro : lista) {
+            for (Book libro : lista) {
                 if (libro.getIsbn().equalsIgnoreCase(isbn)) {
                     System.out.println("Ya existe un libro con ese ISBN. No se puede añadir el libro.");
                     return;
@@ -91,7 +91,7 @@ public class Menu {
                 System.out.println("Todos los campos son obligatorios. Por favor, intente nuevamente.");
 
             } else {
-                Libro libro = new Libro(isbn, titulo, autor);
+                Book libro = new Book(isbn, titulo, autor);
                 lista.add(libro);
                 printBookList(lista);
                 System.out.println("El libro añadido con éxito.");
@@ -108,8 +108,8 @@ public class Menu {
         System.out.print("Introduce el ISBN del libro a eliminar: ");
         String isbn = sc.nextLine();
 
-        Libro libroAEliminar = null;
-        for (Libro libro : lista) {
+        Book libroAEliminar = null;
+        for (Book libro : lista) {
             if (libro.getIsbn().equalsIgnoreCase(isbn)) {
                 libroAEliminar = libro;
                 break;
@@ -124,7 +124,7 @@ public class Menu {
         }
     }
 
-    private void printBookList(List<Libro> listaLibros) {
+    private void printBookList(List<Book> listaLibros) {
 
         if (listaLibros.size() == 0) {
             System.out.println("La lista de libros está vacía.");
