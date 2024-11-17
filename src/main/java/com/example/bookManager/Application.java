@@ -9,7 +9,7 @@ public class Application {
     private Scanner scanner = new Scanner(System.in);
 
     public Application() {
-        this.bookManager.bookList.add(new Book("A123", "Clean", "Robert C Martin"));
+        //this.bookManager.bookList.add(new Book("A123", "Clean", "Robert C Martin"));
     }
 
     public void printMenu() {
